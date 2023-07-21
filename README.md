@@ -1,5 +1,7 @@
 # Garbage Collector of Photos Hugo Theme
 
+⚠ : This theme is still under development and is not yet used on my photo blog !
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Wivik_garbage-collector-photo-blog-theme&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Wivik_garbage-collector-photo-blog-theme)
 
 ![theme](theme.png)
