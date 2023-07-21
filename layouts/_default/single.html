@@ -1,0 +1,76 @@
+{{ define "body_class" }} post-template {{ end }}
+
+{{ define "main" }}
+
+{{- $imageName := .Params.photo -}}
+{{- $originalImage := resources.Get $imageName -}}
+{{- $resize := "1280x" -}}
+{{ .Scratch.Set "image" ($originalImage.Resize $resize) }}
+{{ $resizedImage := .Scratch.Get "image" }}
+
+<main>
+    <article>
+            <section id="photo-page">
+                <div id="photo-top">
+                    <a href="{{ .Parent.Permalink }}" title="Back to Album {{ .Parent.LinkTitle }}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z" fill="rgba(220,220,220,1)"></path></svg></a>
+
+                    <a href="{{ $originalImage.Permalink }}" title="Download picture" download><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19ZM14 9H19L12 16L5 9H10V3H14V9Z" fill="rgba(220,220,220,1)"></path></svg></a>
+                </div>
+
+                <div id="photo-container">
+                    <img id="photo" src="{{ $resizedImage.Permalink }}" alt="photo description">
+                </div>
+                {{ if .Title }}
+                <div id="photo-title">
+                        {{ .Title }}
+                </div>
+                {{ end }}
+                <div id="photo-details">
+                    {{ with $originalImage.Exif }}
+                        {{- /* get icons permalink */ -}}
+                        {{ with .Tags.FNumber }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path d="M9.82726 21.7633L14.3094 14L17.8413 20.1175C16.198 21.3021 14.1805 22 12 22C11.2538 22 10.5268 21.9183 9.82726 21.7633ZM7.88985 21.119C5.3115 19.955 3.31516 17.7297 2.4578 15H11.4226L7.88985 21.119ZM2.04938 13C2.01672 12.6711 2 12.3375 2 12C2 9.39284 2.99773 7.0187 4.6322 5.23859L9.11325 13H2.04938ZM6.15866 3.88251C7.80198 2.6979 9.81949 2 12 2C12.7462 2 13.4732 2.08172 14.1727 2.2367L9.6906 10L6.15866 3.88251ZM16.1101 2.88101C18.6885 4.04495 20.6848 6.27028 21.5422 9H12.5774L16.1101 2.88101ZM21.9506 11C21.9833 11.3289 22 11.6625 22 12C22 14.6072 21.0023 16.9813 19.3678 18.7614L14.8868 11H21.9506Z" fill="rgba(171,171,171,1)"></path></svg> f/{{ . }} &nbsp;
+                        {{ end }}
+
+                        {{ with .Tags.FocalLength }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path d="M1.18164 12C2.12215 6.87976 6.60812 3 12.0003 3C17.3924 3 21.8784 6.87976 22.8189 12C21.8784 17.1202 17.3924 21 12.0003 21C6.60812 21 2.12215 17.1202 1.18164 12ZM12.0003 17C14.7617 17 17.0003 14.7614 17.0003 12C17.0003 9.23858 14.7617 7 12.0003 7C9.23884 7 7.00026 9.23858 7.00026 12C7.00026 14.7614 9.23884 17 12.0003 17ZM12.0003 15C10.3434 15 9.00026 13.6569 9.00026 12C9.00026 10.3431 10.3434 9 12.0003 9C13.6571 9 15.0003 10.3431 15.0003 12C15.0003 13.6569 13.6571 15 12.0003 15Z" fill="rgba(171,171,171,1)"></path></svg> {{ . }}mm &nbsp;
+                        {{ end }}
+
+                        {{ with .Tags.ExposureTime }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM13 12H17V14H11V7H13V12Z" fill="rgba(171,171,171,1)"></path></svg>
+                            {{ partial "exposure_duration.html" . }}s - {{ . }} &nbsp;
+                        {{ end }}
+
+                        {{ with .Tags.ISOSpeedRatings }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path d="M12 21.9966C6.47715 21.9966 2 17.5194 2 11.9966C2 6.47373 6.47715 1.99658 12 1.99658C17.5228 1.99658 22 6.47373 22 11.9966C22 17.5194 17.5228 21.9966 12 21.9966ZM12 19.9966V3.99658C7.58172 3.99658 4 7.5783 4 11.9966C4 16.4149 7.58172 19.9966 12 19.9966Z" fill="rgba(171,171,171,1)"></path></svg> ISO {{ . }} &nbsp;
+                        {{ end }}
+
+                        {{ with .Tags.Model }}
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path d="M9 3H15L17 5H21C21.5523 5 22 5.44772 22 6V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V6C2 5.44772 2.44772 5 3 5H7L9 3ZM12 19C15.3137 19 18 16.3137 18 13C18 9.68629 15.3137 7 12 7C8.68629 7 6 9.68629 6 13C6 16.3137 8.68629 19 12 19ZM12 17C9.79086 17 8 15.2091 8 13C8 10.7909 9.79086 9 12 9C14.2091 9 16 10.7909 16 13C16 15.2091 14.2091 17 12 17Z" fill="rgba(171,171,171,1)"></path></svg> {{ . }}
+                        {{ end }}
+                            + {{with .Tags.LensModel }}{{ . }} &nbsp;
+                        {{ end }}
+                        <br />
+                        {{ with .Tags.Copyright}}
+                            {{ partial "format-creative-commons.html" . }}{{ end }} {{with .Tags.Artist }}
+                            {{ . }} - {{ end }} {{with .Tags.DateTimeOriginal.Format "January 2, 2006" }}{{ . }}
+                        {{ end }}
+                    {{ end }}
+                </div>
+                {{ if .Params.description }}
+                <div id="photo-description">
+                    {{ .Params.description | markdownify }}
+                </div>
+                {{ end }}
+                {{ if .Content }}
+                <div id="photo-content">
+                    {{ .Content }}
+                </div>
+                {{ end }}
+            </div>
+        </section>
+    </article>
+</main>
+
+
+{{ end }}

@@ -1,0 +1,407 @@
+:root {
+
+    /* Set sans-serif & mono fonts */
+    --sans-font: "fira_sansregular", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica, "Helvetica Neue", sans-serif;
+    --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  
+    /* Body font size. By default, effectively 18.4px, based on 16px as 'root em' */
+    --base-fontsize: 1.15rem;
+  
+    /* Major third scale progression - see https://type-scale.com/ */
+    --header-scale: 1.25;
+  
+    /* Line height is set to the "Golden ratio" for optimal legibility */
+    --line-height: 1.618;
+  
+    /* Default (light) theme */
+    /* inverted both becase I prefer dark theme by default */
+    --bg: #212121;
+    --bg-transparent: #2f2f2f41;
+    --bg-album-transparent: #2f2f2fe5;
+    --bg-album-transparent-mid: #2f2f2f9c;
+    --accent-bg: #2B2B2B;
+    --text: #DCDCDC;
+    --text-light: #ABABAB;
+    --border: #666;
+    --accent: #0099ff;
+    --accent-light: #FFECB3;
+    --code: #F06292;
+    --preformatted: #CCC;
+    --disabled: #111;
+
+  }
+
+  /* main body */
+  html {
+    /* Set the font globally */
+    font-family: var(--sans-font);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: var(--text);
+    background: var(--bg);
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+
+
+  /* header */
+
+  header {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  a.header-site-title {
+    border: none;
+    font-size: calc(var(--base-fontsize) * var(--header-scale) * var(--header-scale));
+    margin-top:0;
+  }
+
+  a.header {
+    margin-top:0;
+  }
+
+  nav {
+    font-size: 1rem;
+    line-height: 2;
+  }
+
+  nav a,
+  nav a:visited {
+    margin: 0 1rem 1rem 0;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--text);
+    display: inline-block;
+    padding: 0.1rem 1rem;
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transition: all .25s ease-in-out;
+  }
+
+  a.tags,
+  a.tags:visited {
+    margin: 0 1rem 1rem 0;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--text);
+    display: inline-block;
+    padding: 0.1rem 1rem;
+    text-decoration: none;
+  }
+
+  a.tags:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transition: all .25s ease-in-out;
+  }
+
+
+/* links and buttons */
+  a,
+  a:visited {
+    color: var(--accent);
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  a button,
+  button,
+  [role="button"],
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    border: none;
+    border-radius: 5px;
+    background: var(--accent);
+    font-size: 1rem;
+    color: var(--bg);
+    padding: 0.7rem 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  a button[disabled],
+  button[disabled],
+  [role="button"][aria-disabled="true"],
+  input[type="submit"][disabled],
+  input[type="reset"][disabled],
+  input[type="button"][disabled],
+  input[type="checkbox"][disabled],
+  input[type="radio"][disabled],
+  select[disabled] {
+    cursor: default;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* gallery main albums list */
+
+#album-page {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+
+#album-page > article {
+  flex: 50%;
+  max-width: 50%;
+  min-height: 40vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+/* Responsive layout, one item instead of two on screen */
+@media screen and (max-width: 600px) {
+  #album-page > article {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+#album-page > article > a {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: var(--text);
+  cursor: zoom-in;
+}
+
+#album-page > article > a:hover {
+  background-color: var(--bg-transparent);
+  transition: all .25s ease-in-out;
+}
+
+#album-page span.album-title {
+  font-size: 1.6rem;
+  width: 100%;
+  min-height: 15%;
+  max-height: 30%;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  background-color: var(--bg-album-transparent-mid);
+}
+
+#album-page span.album-title-date {
+  display: block;
+  border-top: 1px solid var(--text-light);
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+#album-page > article > span.album-content-title {
+  font-size: 1rem;
+  width: 100%;
+  margin-top: 70%;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  background-color: var(--bg-album-transparent-mid);
+}
+
+
+/* album content view */
+/* album title */
+#album-content-title {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border)
+}
+
+#album-content-title > h1 {
+  margin: 0;
+  font-size: x-large;
+}
+
+#album-content-title > #album-content-title-metadata {
+  font-size: small;
+}
+
+#album-content-title > #album-content-title-description {
+  margin-top: 1rem;
+}
+
+/* album content items */
+
+#album-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#album-content > article {
+  flex: 1 0 50%;
+  min-height: 60vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+/* Responsive layout, one item instead of two on screen */
+@media screen and (max-width: 600px) {
+  #album-content > article {
+    flex: 1 0 100%;
+    max-width: 100%;
+  }
+  #album-content .line-break::after {
+    width: 0;
+  }
+}
+
+#album-content > article.line-break {
+  flex: 1 0 100%;
+}
+
+#album-content > article.line-break::before {
+  flex: 1 0 50%;
+  max-width: 100%;
+}
+
+#album-content > article.line-break.no-height {
+  min-height: 0vh;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  /* border-top: 1px solid var(--border); */
+  border-bottom: 1px solid var(--border);
+}
+
+#album-content > article > a {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: var(--text);
+  cursor: zoom-in;
+}
+
+#album-content > article > a:hover {
+  background-color: var(--bg-transparent);
+  transition: all .25s ease-in-out;
+}
+/* 
+#album-content > article > a > span.album-content-title {
+  font-size: 1.6rem;
+  width: 100%;
+  min-height: 15%;
+  max-height: 30%;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  background-color: var(--bg-album-transparent-mid);
+} */
+
+#album-content > article > a > span.album-content-item-title {
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  background-color: var(--bg-album-transparent-mid);
+}
+
+/* photo display */
+
+
+#photo-page {
+  display: grid;
+  grid-template-areas:
+      "top"
+      "photo"
+      "title"
+      "info"
+      "description";
+  grid-template-rows: auto 1fr auto auto;
+  gap: 1rem;
+}
+
+#photo-top {
+  grid-area: top;
+  width: 100%;
+  text-align: left;
+  font-size: larger;
+}
+
+#photo-top > a {
+  text-decoration: none;
+  margin-right: 1.5rem;
+}
+
+#photo-container {
+  grid-area: photo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#photo {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+
+}
+
+#photo-title {
+  grid-area: title;
+  width: 100%;
+  text-align: center;
+  font-size: larger;
+  text-transform: uppercase;
+}
+
+
+#photo-details {
+  grid-area: info;
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: center;
+  box-sizing: border-box;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+#photo-description {
+  grid-area: description;
+  box-sizing: border-box;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+  /* bottom of the landing page */
+  #bottom-landingpage {
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background-color: var(--bg-album-transparent);
+  }
+
+  /* footer */
+
+  footer {
+    margin-top: 4rem;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+

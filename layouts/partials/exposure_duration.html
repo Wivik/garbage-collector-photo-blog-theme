@@ -1,0 +1,7 @@
+{{ $duration := . }}
+{{ $denom := (div 1 $duration) }}
+{{ if ge $duration 1 }}
+  {{ printf "%.1fs" $duration }}
+{{ else }}
+  {{ printf "1/%.1f" $denom }}
+{{ end }}

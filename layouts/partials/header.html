@@ -1,0 +1,13 @@
+<header>
+    <nav>
+        <a aria-current="page" class="header-site-title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        {{ range .Site.Menus.main }}
+        <a aria-current="page" class="header" href="{{ .URL }}">
+            {{ if .Pre }}
+            {{- $icon := resources.Get .Pre -}}
+            <img src="{{ $icon.Permalink }}" />
+            {{ end }}
+            {{- .Name -}}</a>
+        {{ end }}
+    </nav>
+</header>

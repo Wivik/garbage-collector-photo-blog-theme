@@ -1,0 +1,38 @@
+<section id="album-content-title">
+    <h1>{{ .Title }}</h1>
+    <div id="album-content-title-metadata">Posted on {{.Date.Format "Monday, January 2, 2006" }} by {{ .Site.Author.name }}</div>
+    {{ if .Params.description }}
+    <div id="album-content-title-description">
+        {{ .Params.description | markdownify }}
+    </div>
+    {{ end }}
+</section>
+
+
+
+
+<section id="album-content">
+    {{ range .Pages }}
+    {{- $imageName := .Params.photo -}}
+    {{- $originalImage := resources.Get $imageName -}}
+    {{- $resize := "1280x" -}}
+    {{ .Scratch.Set "image" ($originalImage.Resize $resize) }}
+    {{ $resizedImage := .Scratch.Get "image" }}
+        <article {{ if .Params.linebreak }}class=" line-break"{{ end }} style="background-image: url('{{ $resizedImage.Permalink }}');{{ if .Params.albumdisplay }} background-position: {{ .Params.albumdisplay }};{{ end }}{{ if .Params.linebreak }} margin-top: 1rem;{{ end }}">
+            <a href="{{ .Permalink }}">
+                {{ if .Title }}
+                <span class="album-content-item-title">{{ .Title }}</span>
+                {{ end }}
+            </a>
+
+        </article>
+        {{ if .Params.linebreak }}
+            {{ if .Params.description }}
+            <article class="line-break no-height">
+                {{ .Params.description | markdownify }}
+            </article>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+
+</section>

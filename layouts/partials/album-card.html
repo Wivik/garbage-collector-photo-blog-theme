@@ -1,0 +1,22 @@
+<section id="album-page">
+
+    {{ range first 4 .Pages }}
+    {{- $imageName := .Params.photo -}}
+    {{- $originalImage := resources.Get $imageName -}}
+    {{- $resize := "1024x" -}}
+    {{ .Scratch.Set "image" ($originalImage.Resize $resize) }}
+    {{ $resizedImage := .Scratch.Get "image" }}
+        <article style="background-image: url('{{ $resizedImage.Permalink }}');">
+            <a href="{{ .Permalink }}">
+                <span class="album-title">{{ .Title }}<br />
+                    <span class="album-title-date">{{ .Date.Format "2006-01-02" }}</span>
+                </span>
+            </a>
+        </article>
+    {{ end }}
+
+</section>
+<section id="bottom-landingpage">
+    <p>For a better bandwidth usage, this landing page will only displays the last 4 albums.</p>
+    <p>Please check the <a href="/tags/">Tags</a> section to see the whole content.</p>
+</section>
