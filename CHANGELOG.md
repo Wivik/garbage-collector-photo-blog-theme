@@ -1,4 +1,13 @@
-# 0.1.0 (2023-07-21)
+## [0.1.1](https://github.com/Wivik/garbage-collector-photo-blog-theme/compare/v0.1.0...v0.1.1) (2023-07-21)
+
+
+### Bug Fixes
+
+* replaced rss icon by svg ([c4a75ca](https://github.com/Wivik/garbage-collector-photo-blog-theme/commit/c4a75caa41052e15cbabff5a9e00ca9f3278efab))
+
+
+
+# [0.1.0](https://github.com/Wivik/garbage-collector-photo-blog-theme/compare/ebfa0c1955375c71562605d369ddafa6504bf54c...v0.1.0) (2023-07-21)
 
 
 ### Bug Fixes
