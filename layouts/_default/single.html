@@ -14,7 +14,9 @@
                 <div id="photo-top">
                     <a href="{{ .Parent.Permalink }}" title="Back to Album {{ .Parent.LinkTitle }}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z" fill="rgba(220,220,220,1)"></path></svg></a>
 
+                    {{ if default true .Site.Params.allowPhotoDownload }}
                     <a href="{{ $originalImage.Permalink }}" title="Download picture" download><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M4 19H20V12H22V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V12H4V19ZM14 9H19L12 16L5 9H10V3H14V9Z" fill="rgba(220,220,220,1)"></path></svg></a>
+                    {{ end }}
                 </div>
 
                 <div id="photo-container">

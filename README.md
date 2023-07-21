@@ -155,7 +155,7 @@ Open your Hugo website, your photo album is here ! Now you can customize it.
 
 ### Customize your album
 
-This theme uses the YAML metadata to configure your album behavior. By default, the photos will be displayed in rows of two photos. One if mobile screen. Click on a photo will open it in a larger view that will display by default the EXIF metadata and a link to download it in the original format.
+This theme uses the YAML metadata to configure your album behavior. By default, the photos will be displayed in rows of two photos. One if mobile screen. Click on a photo will open it in a larger view that will display by default the EXIF metadata and a link to download it in the original format. The photo download is the default behavior, you can disable it in [Theme configuration](#theme-specific-configurations).
 
 The album can be customized with the following options.
 
@@ -189,6 +189,14 @@ The photo archetype supports the following options :
 | `weight` | `int` | No | An integer used by Hugo to sort images. By default, the number is the number of a file in the photo lists, in alphabetic order. |
 
 Please refer to the comments in [archetypes/photo.md](archetypes/photo.md) for an up-to-date and exhaustive supported options.
+
+### Theme specific configurations
+
+The theme can use the following configuration keys in your Hugo `config.yaml` file.
+
+| Options | Type | Mandatory | Description |
+| ------- | ---- | --------- | ----------- |
+| `params.allowPhotoDownload` | `boolean` | No | Activate the "Download" button in the photo display page.<br />Default : `true`
 
 ### new.py reference
 
