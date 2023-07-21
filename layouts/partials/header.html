@@ -4,8 +4,7 @@
         {{ range .Site.Menus.main }}
         <a aria-current="page" class="header" href="{{ .URL }}">
             {{ if .Pre }}
-            {{- $icon := resources.Get .Pre -}}
-            <img src="{{ $icon.Permalink }}" alt="{{ .Name }}" />
+                {{ .Pre }}
             {{ end }}
             {{- .Name -}}</a>
         {{ end }}
