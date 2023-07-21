@@ -5,7 +5,7 @@
         <a aria-current="page" class="header" href="{{ .URL }}">
             {{ if .Pre }}
             {{- $icon := resources.Get .Pre -}}
-            <img src="{{ $icon.Permalink }}" />
+            <img src="{{ $icon.Permalink }}" alt="{{ .Name }}" />
             {{ end }}
             {{- .Name -}}</a>
         {{ end }}
