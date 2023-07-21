@@ -1,3 +1,17 @@
+# [0.2.0](https://github.com/Wivik/garbage-collector-photo-blog-theme/compare/v0.1.1...v0.2.0) (2023-07-21)
+
+
+### Bug Fixes
+
+* use browser back action instead of link for full view ([8196e03](https://github.com/Wivik/garbage-collector-photo-blog-theme/commit/8196e03e59f6e38c5bba0432205106381e3d8f04))
+
+
+### Features
+
+* moved back to top button to visible position ([3b3225f](https://github.com/Wivik/garbage-collector-photo-blog-theme/commit/3b3225fbcef62ebdb83a3bc649aefa02b392e6a6))
+
+
+
 ## [0.1.1](https://github.com/Wivik/garbage-collector-photo-blog-theme/compare/v0.1.0...v0.1.1) (2023-07-21)
 
 
