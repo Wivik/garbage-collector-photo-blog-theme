@@ -412,3 +412,18 @@
     border-top: 1px solid var(--border);
   }
 
+  #top-wo-nerae {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    background-color: var(--bg-album-transparent-mid);
+    padding: 10px;
+    display: inline-block;
+  }
+
+  #top-wo-nerae:hover {
+    background-color: var(--accent);
+    transition: all .25s ease-in-out;
+  }
