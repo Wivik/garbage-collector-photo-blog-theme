@@ -138,7 +138,6 @@
   input[type="checkbox"][disabled],
   input[type="radio"][disabled],
   select[disabled] {
-    cursor: default;
     opacity: 0.5;
     cursor: not-allowed;
   }
