@@ -169,7 +169,7 @@ The album header supports the following options :
 | `tags` | `list` | Yes | A list of tags. `Album` will be always be set and should stay, it's required to see all albums |
 | `title` | `string` | Yes | The album title displayed in the front page and the album page |
 
-Please refer to the comments in `archetype/defaut.md` for an up-to-date and exhaustive supported options.
+Please refer to the comments in [archetype/defaut.md] for an up-to-date and exhaustive supported options.
 
 The photo listing is customizable by editing each photo file to match how you want to display them.
 
@@ -188,7 +188,7 @@ The photo archetype supports the following options :
 | `title` | `string` | No | The photo title. If filled, the title will be displayed at the bottom of the thumbnail. |
 | `weight` | `int` | No | An integer used by Hugo to sort images. By default, the number is the number of a file in the photo lists, in alphabetic order. |
 
-Please refer to the comments in `archetype/photo.md` for an up-to-date and exhaustive supported options.
+Please refer to the comments in [archetype/photo.md] for an up-to-date and exhaustive supported options.
 
 ### new.py reference
 
