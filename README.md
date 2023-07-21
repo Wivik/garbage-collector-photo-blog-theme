@@ -245,8 +245,6 @@ This theme is licensed under the [MIT License](LICENSE).
 
 Some CSS parts come from the [SimpleCSS](https://simplecss.org) framework for general design like buttons and navigation header.
 
-The archetype used to generate the gallery page was inspired by the [AutoPhugo](https://github.com/kc0bfv/autophugo/) theme, licensed under the Creative Commons Attribution 3.0 License.
-
 The Creative Commons formater partial uses [Remix Icons](https://github.com/Remix-Design/remixicon) which are available under Apache License 2.0.
 
 The partial invoked by the EXIF reader shortcode is a contribution from Hugo's forum. This specific part is licensed under a Creative Common Attribution NonCommercial ShareAlike 3.0 Unported License as [indicated by their ToS](https://discourse.gohugo.io/tos#3).
