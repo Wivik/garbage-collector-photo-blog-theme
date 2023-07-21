@@ -88,7 +88,7 @@
 
   a.tags,
   a.tags:visited {
-    margin: 0 1rem 1rem 0;
+    margin: 0.5rem 0.5rem 0 0;
     border: 1px solid var(--border);
     border-radius: 5px;
     color: var(--text);
@@ -261,7 +261,7 @@
 }
 
 #album-content > article.line-break {
-  flex: 1 0 100%;
+  flex: 1 0 90%;
 }
 
 #album-content > article.line-break::before {
@@ -271,13 +271,21 @@
 
 #album-content > article.line-break.no-height {
   min-height: 0vh;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   margin-bottom: 1rem;
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem;
-  /* border-top: 1px solid var(--border); */
+  padding: 0.5rem;
+  text-align: left;
   border-bottom: 1px solid var(--border);
+}
+
+#album-content > article.line-break > div.description {
+  width: 80%;
+  margin-left:auto;
+  padding: 1rem;
+  margin-right:auto;
+  background-color: var(--bg-album-transparent-mid)
 }
 
 #album-content > article > a {

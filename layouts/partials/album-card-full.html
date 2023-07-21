@@ -1,15 +1,20 @@
 <section id="album-content-title">
     <h1>{{ .Title }}</h1>
-    <div id="album-content-title-metadata">Posted on {{.Date.Format "Monday, January 2, 2006" }} by {{ .Site.Author.name }}</div>
+    <div id="album-content-title-metadata">Posted on {{.Date.Format "Monday, January 2, 2006" }} by {{ .Site.Author.name }}
+    {{ $taxonomy := "tags" }}
+    {{ with .GetTerms $taxonomy }}
+        <br />
+        {{ range . }}
+            <a href="{{ .RelPermalink }}" class="tags">{{ .LinkTitle }}</a>
+        {{ end }}
+    {{ end }}
+    </div>
     {{ if .Params.description }}
     <div id="album-content-title-description">
         {{ .Params.description | markdownify }}
     </div>
     {{ end }}
 </section>
-
-
-
 
 <section id="album-content">
     {{ range .Pages }}
@@ -29,7 +34,7 @@
         {{ if .Params.linebreak }}
             {{ if .Params.description }}
             <article class="line-break no-height">
-                {{ .Params.description | markdownify }}
+                <div class="description">{{ .Params.description | markdownify }}</div>
             </article>
             {{ end }}
         {{ end }}
