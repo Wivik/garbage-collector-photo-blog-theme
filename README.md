@@ -169,7 +169,7 @@ The album header supports the following options :
 | `tags` | `list` | Yes | A list of tags. `Album` will be always be set and should stay, it's required to see all albums |
 | `title` | `string` | Yes | The album title displayed in the front page and the album page |
 
-Please refer to the comments in [archetypes/defaut.md](archetypes/defaut.md) for an up-to-date and exhaustive supported options.
+Please refer to the comments in [archetypes/default.md](archetypes/default.md) for an up-to-date and exhaustive supported options.
 
 The photo listing is customizable by editing each photo file to match how you want to display them.
 
