@@ -253,5 +253,4 @@ Some CSS parts come from the [SimpleCSS](https://simplecss.org) framework for ge
 
 The Creative Commons formater partial uses [Remix Icons](https://github.com/Remix-Design/remixicon) which are available under Apache License 2.0.
 
-The partial invoked by the EXIF reader shortcode is a contribution from Hugo's forum. This specific part is licensed under a Creative Common Attribution NonCommercial ShareAlike 3.0 Unported License as [indicated by their ToS](https://discourse.gohugo.io/tos#3).
 
