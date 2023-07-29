@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/Wivik/garbage-collector-photo-blog-theme/compare/v0.2.0...v0.2.1) (2023-07-29)
+
+
+### Bug Fixes
+
+* removed exposure format partial ([a754c9f](https://github.com/Wivik/garbage-collector-photo-blog-theme/commit/a754c9fcb77570c72da6ce5533bbc942292e501b))
+
+
+
 # [0.2.0](https://github.com/Wivik/garbage-collector-photo-blog-theme/compare/v0.1.1...v0.2.0) (2023-07-21)
 
 
